@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/add"><button style="float: right;">Add New details</button></a>
+    <h1>Vehicle Management System</h1>
+    <hr>
+    <form action="">
+       <input type="search" placeholder="enter Vehicle Number" name="n1" id="n1">
+       <button>search</button>
+
+    </form>
+    <script>
+        function Search(){
+        const Vehicleno=document.getElementById('n1').value;
+
+        const first="/search"/$Vehicleno;
+        window.location.href=first;
+
+    }
+    </script>
+</body>
+</html>

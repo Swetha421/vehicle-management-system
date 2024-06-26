@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <a href="/"><button class="float-right mb-0 bg-blue-500">back</button></a>
+<h1 style="margin-top: 20px;"> Details</h1> <hr>
+<table class="w-full table-auto border-collapse text-center">
+    <thead>
+        <tr>
+            <th class="border px-4 py-2">Service No</th>
+            <th class="border px-4 py-2">Vehicle No</th>
+            <th class="border px-4 py-2">vehicle Type</th>
+            <th class="border px-4 py-2">service date</th>
+            <th class="border px-4 py-2">Service Completion Date</th>
+            <th class="border px-4 py-2">Owner Name</th>
+            <th class="border px-4 py-2">Service Details</th>
+            
+        </tr>
+    </thead>
+    <tbody id="vehicletable">
+        
+    </tbody>
+</table>
+<script>
+   async function view(){
+    try{
+        const deta=await fetch('/alldata')
+        const newdata= await deta.json()
+        const vehicledata=document.getElementById('vehicletable')
+        vehicledata.innerHTML='';
+        newdata.forEach(owner => {
+            vehicledata.innerHTML+=`
+            <tr>
+                <td>${owner.Serviceno}</td>
+                <td>${owner.num}</td>
+                <td>${owner.typ}</td>
+                <td>${owner.date}</td>
+                <td>${owner.d1}</td>
+                <td>${owner.name1}</td>
+                <td>${owner.s1}</td>
+                
+                
+                </tr>`
+
+            
+        });
+    }
+     catch(error){
+        console.log('error')
+     }   
+    }
+    document.addEventListener('DOMContentLoaded',view);
+    
+</script>
+</body>
+</html>
